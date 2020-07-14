@@ -1,0 +1,92 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type="text/tiscript" src="mainpage.js"></script>
+</head>
+
+<link rel="stylesheet" href="mainpage.css">
+<body>
+<section class="mainContainer">
+	<div class="left">
+		<center><h1>Hide or extract a message in plaintext</h1></center>
+		<center>
+			<div class="btnGroupLeft btnGroupAll">
+				<button id="leftHide" class="tabButton tabButtonLeft selected">Hide message</button>
+				<button id="leftExtract" class="tabButton">Extract message</button>
+			</div>
+		</center>
+		<div id="hideMessageContainer" class="divContainer">
+			<div class="leftInput">
+				<h2>Public message:</h2>
+				<textarea cols="28" rows="8" id="publicMessage" placeholder="Message seen by everyone" spellcheck="false" style="margin-top: -8px;"></textarea>
+				<h2>Private message:</h2>
+				<textarea cols="28" rows="8" id="privateMessage" placeholder="Secret msg" spellcheck="false" style="margin-top: -8px;"></textarea>
+			</div>
+			<div class="leftOutput">
+				<h2 style="margin-top: 12px;">Key:</h2>
+				<h5 style="font-family: Quicksand; font-size: 10px; margin-top: -10px; color: rgb(74, 74, 74);">1 key encryption: Must be 32 characters. (Default: PlUbtNuomynzeeyVkRrqUFSUULwKwMtJ)</h5>
+				<input id="key" placeholder="Key" style="margin-top: -20px; width:240px;" value="PlUbtNuomynzeeyVkRrqUFSUULwKwMtJ" maxlength="32"/>
+
+				<br><br><br><br><br><br>
+
+				<button id="generateHide">Generate message</button>
+				<br><br>
+				<textarea class="textareaDarken" cols="28" rows="8" id="output" readonly placeholder="Secret msg" spellcheck="false" style="margin-top: -12px;"></textarea>
+			</div>
+		</div>
+		<div id="extractMessageContainer" class="divContainer">
+			<div class="leftInput">
+				<h2>Public message:</h2>
+				<textarea cols="28" rows="8" id="publicMessageExtract" placeholder="Message seen by everyone" spellcheck="false" style="margin-top: -8px;"></textarea>
+				<h2 style="margin-top: 12px;">Key:</h2>
+				<h5 style="font-family: Quicksand; font-size: 10px; margin-top: -10px; color: rgb(74, 74, 74);">[1 key encryption] Must be 32 characters. A-Z supported only. (Default: PlUbtNuomynzeeyVkRrqUFSUULwKwMtJ)</h5>
+				<input id="keyExtract" placeholder="Key" style="margin-top: -10px; width:240px;" value="PlUbtNuomynzeeyVkRrqUFSUULwKwMtJ" maxlength="32"></input>
+			</div>
+			<div class="leftOutput">
+				<h2>Private message:</h2>
+				<textarea class="textareaDarken" cols="28" rows="16" id="outputExtract" readonly placeholder="Secret msg" spellcheck="false" style="margin-top: -10px;"></textarea>
+				<button id="generateExtract" style="margin-top: 5px;">Extract message</button>
+
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<br>
+		<center>
+			<div class="btnGroupRight btnGroupAll">
+				<button id="rightNone" class="tabButton tabButtonLeft selected">No encryption</button>
+				<button id="right1Key" class="tabButton">1 key encryption</button>
+				<button id="right2Key" class="tabButton tabButtonRight">2 key encryption</button>
+			</div>
+			<br>
+			<hr>
+		</center>
+		<div id="encryptionContainer" class="leftContainer">
+			<h2 style="margin-top: -10px;">Enter your secret key in the key input field.</h2>
+			<h3>Uses AES128 algorithm. 2 key encryption is best.</h3>
+			<h3 style="font-size: 10px;">More technical info: First 16 characters are the key, remaining 16 characters are the initialisation vectors</h3>
+			<textarea class="textareaRight" cols="27" rows="12" id="keyArea" placeholder="Paste your key here" spellcheck="false" style="display: none;"/>
+			<div class="btnGroupNone btnGroupAll" style="display: none;">
+				<button id="keyImport" class="tabButton tabButtonLeft" style="font-size: 12px; width:178px;">Import key from file</button>
+				<button id="keyPaste" class="tabButton" style="font-size: 12px; width:178px;">Paste key from clipboard</button>
+			</div>
+		</div>
+		<div id="twoKeyEncryptionContainer" class="leftContainer">
+			<h2 style="margin-top: -10px;">Load your private/public key:</h2>
+			<textarea class="textareaRight" cols="27" rows="12" id="keyArea2" placeholder="Paste your key here" spellcheck="false"/>
+			<div class="btnGroupNone btnGroupAll">
+				<button id="keyImport2" class="tabButton tabButtonLeft" style="font-size: 12px; width:178px;">Import key from file</button>
+				<button id="keyPaste2" class="tabButton" style="font-size: 12px; width:178px;">Paste key from clipboard</button>
+			</div>
+			<h3 style="color: rgb(138, 138, 138); font-size: 10px;">Use your public key to hide a message. Use your private key to extract a message.</h3>
+		</div>
+		<div id="noencryptionContainer" class="leftContainer">
+			<h2 style="margin-top: -10px;">No encryption method selected</h2>
+			<h3 style="color: red; font-size: 14px;">Not recommended: Anyone, with enough effort, can find your message.</h3>
+			<h3 style="color: rgb(186, 186, 186); font-size: 12px;">You may use encrypted text for the private message if you use a different algorithm</h3>
+			<center><img src="zerodrop.png" style="margin-top: -10px;"/></center>
+		</div>
+	</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,61 @@
+#header {
+	background-color: #2f313d;
+	height: 20px;
+	font-family: Quicksand;
+	box-shadow: 0 0px 9px #000000;
+	color: rgba(255, 255, 255, 0.3);
+	transition: color 0.5s ease-in-out;
+	z-index: 1;
+
+}
+
+#header:hover {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+#windowcaption {
+	font-size: 15px;
+	transition: 0.5s ease-in-out;
+}
+
+#windowbuttons {
+	padding-top: -20px;
+	z-index: 2;
+
+	background-color: #2f313d;
+	text-decoration: none;
+	border: none;
+}
+
+button#windowminimise {
+	float: right;
+	width: 15px;
+	height: 20px;
+
+	background-image: none;
+	background: #2f313d;
+	color: #ffffff;
+	text-decoration: none;
+	border: none;
+	transition: background-color 0.5s ease-out;
+}
+
+button#windowclose {
+	float: right;
+	width: 15px;
+	height: 20px;
+
+	background: #353745;
+	color: #ffffff;
+	text-decoration: none;
+	border: none;
+	transition: background-color 0.5s ease-out;
+}
+
+button#windowminimise:hover {
+	background: #3d4057;
+}
+
+button#windowclose:hover {
+	background: #574141;
+}

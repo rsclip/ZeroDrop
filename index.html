@@ -1,0 +1,36 @@
+<html window-frame="extended" window-blurbehind="dark" theme="dark" window-resizable window-icon="zerodrop.ico">
+
+<head>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<link rel="stylesheet" href="index.css">
+	<script type="text/tiscript">
+		const DEFAULT_WIDTH = 800dip;
+		const DEFAULT_HEIGHT = 500dip;
+
+	    var (sx,sy,sw,sh) = View.screenBox(0,#workarea,#rectw);
+
+	    var w = self.toPixels(DEFAULT_WIDTH, #width);
+	    var h = self.toPixels(DEFAULT_HEIGHT, #height);
+
+	    view.move( sx + (sw - w) / 2, sy + (sh - h) / 2, w,h, true );
+		view.windowResizable = false;
+		view.windowMaximizable = false;
+
+		var htmlLoad = view.getHtmlFile();
+		$(frame#content).load(htmlLoad);
+	</script>
+</head>
+
+<header id="header" role=window-caption>
+	<center><window-caption id="windowcaption">ZeroDrop</window-caption></center>
+	<div id="windowbuttons">
+		<button role="window-close" id="windowclose">x</button>
+		<button role="window-minimize" id="windowminimise">_</button>
+	</div>
+</header>
+
+<body style="background-color: #97a9bf;">
+	<frame#content src="password.html"/>
+</body>
+
+</html>

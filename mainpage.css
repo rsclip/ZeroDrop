@@ -1,0 +1,132 @@
+body {
+	overflow: hidden;
+}
+
+.mainContainer {
+	width: 100%; height: 100%;
+	padding: 0;
+}
+
+.left {
+	width: 70%;
+	height: 100%;
+	float: left;
+}
+.right {
+	width: 30%;
+	height: 100%;
+	float: right;
+	background: rgb(235, 235, 235);
+	border-radius: 10px;
+	box-shadow: 0 0px 9px #000000;
+}
+
+.tabButton {
+	background: white;
+	border: none;
+	border: 1px solid rgb(182, 182, 182);
+	width: 140px;
+	height: 25px;
+
+	color: black;
+	font-family: Quicksand;
+	font-size: 15px;
+	outline: none;
+	transition: height(quad-out,0.4s)
+                background(linear,0.4s)
+                color(linear,0.4s);
+	box-shadow: 2px 2px 2px rgb(125, 125, 125);
+}
+
+.tabButton:hover:not(.selected) {
+	background: rgb(213, 244, 238);
+}
+
+.tabButton.selected {
+	background: rgb(192, 250, 238);
+}
+
+.leftContainer{
+	padding: 11px;
+}
+
+h1 {
+	font-family: Quicksand;
+	font-size: 25px;
+	text-shadow: 0px 1px 1px black;
+}
+
+h2, h3 {
+	font-family: Quicksand;
+	font-size: 15px;
+	border: none;
+}
+
+frame#contentRight {
+	width: 100px;
+	height: 100%;
+}
+
+textarea {
+	font-family: Quicksand;
+	font-size: 12px;
+	color: black;
+	resize: none;
+	overflow: auto;
+	outline: none;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.textareaRight {
+	font-size: 10px;
+}
+
+textarea:focus:not(.textareaDarken) {
+	border-color: #2eec71;
+}
+
+input {
+	font-family: Quicksand;
+	color: black;
+	border-radius: 5px;
+}
+
+input:hover {
+	border-color: #759d83;
+}
+
+input:focus {
+	border-color: #2eec71;
+}
+
+.leftInput {
+	height: 100%;
+	width: 50%;
+	float: left;
+}
+
+.leftOutput {
+	height: 100%;
+	width: 50%;
+	float: right;
+}
+
+#generateHide, #generateExtract {
+	background: rgb(0, 140, 193);
+	color: white;
+	font-family: Quicksand;
+	font-size: 15px;
+	width: 222px;
+	border-radius: 6px;
+	border-color: transparent;
+	box-shadow: 2px 2px 2px rgb(125, 125, 125);
+}
+
+.generate:hover {
+	background: rgb(0, 164, 193);
+}
+
+.textareaDarken {
+	background: rgb(236, 236, 236);
+}
