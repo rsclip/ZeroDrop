@@ -21,22 +21,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/Cyclip/ZeroDrop/">
-    <img src="zerodrop.png" alt="Logo" width="80" height="80">
+    <img src="zerodrop.png" alt="Logo" width="93" height="107">
   </a>
 
   <h3 align="center">ZeroDrop</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    Hide messages in plainsight/plaintext
   </p>
 </p>
 
@@ -62,134 +53,70 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+ZeroDrop is a simple small application which used to hide messages within zero width characters. These characters are not rendered by majority of platforms and text editors, and all information is retained when copying and pasting the text. This allows 2 (or more) people to share information easily in plainsight of everyone else without suspicion. It is only available for Windows 10, but the source code can be run on any operating system.
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
+How it works:
+1. Private message is encrypted (optional)
+2. Private message is converted into binary. 0s and 1s represent different zero-width characters. 2 represents a space to shorten length.
+3. Private message is converted into zero width characters.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+Extracting:
+1. Private message is converted from zero width characters to binary.
+2. Private message is converted from binary to text
+3. Private message is decrypted using the appropriate key (optional)
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
+No encryption is supported.
+Symmetrical encryption is supported(1 key encryption), and uses AES128 algorithm to encrypt. Your key must be 32 characters in length. The first half will be the key, the second half will be the initialisation vector.
+Asymmetrical encryption is mostly supported. You can run `zerodrop.exe ignorePGP` if it mentions your PGP key is invalid - it uses RSA.
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+## Tested on
+Operating Systems:
+* Windows
+
+Apps:
+* Discord (character limit)
+* Reddit
+* Twitter
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
+Frameworks ZeroDrop is created with:
+* [Python](https://python.org)
+* [Sciter](https://sciter.com)
+* [PyInstaller](https://pyinstaller.org)
+* [NSIS](https://nsis.sourceforge.io/)
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
+The installer may be flagged as dangerous or unsafe by Chrome/Windows Defender/Antiviruses. It is open source and safe, compiled with PyInstaller and the installer made with NSIS. You may use the ZIP version if preferred, or build it yourself (Create a virtual environment, `pip install -r requirements.txt` and `pyinstaller --noconsole zerodrop.py`)
 
 ### Installation
+1. Go to the [latest release](https://github.com/Cyclip/ZeroDrop/) page and download the ZeroDrop-Installer.exe.
+2. Run the installer and follow instructions
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-```sh
-git clone https://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+### Installation (ZIP)
+1. Go to the [latest release](https://github.com/Cyclip/ZeroDrop/) page and download ZeroDrop.zip
+2. Right click and extract the ZIP file to `C:\Program Files (x86)\ZeroDrop\`
+3. You can optionally create a shortcut to `C:\Program Files (x86)\ZeroDrop\ZeroDrop.exe` or run it directly from there.
 
-
+### Installation (Build)
+You should have Python 3 (3.7 recommended but 3.x is fine). Also have the `virtualenv` module installed - `pip install virtualenv` or `python -m pip install virtualenv`
+1. git clone this repository
+2. Extract the file
+3. Change directory to `\ZeroDrop`
+4. Create a folder - `mkdir venv`
+5. Create a virtual environment - `python -m venv venv`
+6. Active the virtual environment - `venv\Scripts\activate`
+7. `pip install -r requirements.txt` or `python -m pip install -r requirements.txt`
+8. `pyinstaller --onefile zerodrop.py`
+9. Copy and paste all files *except* `translator.py` (`index.html`, `index.css`, `mainpage.html`, `mainpage.css`, `mainpage.js`, `zerodrop.ico`, `zerodrop.png`) into `dist\ZeroDrop\`.
+10. Optionally deactivate and delete the virtual environment.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+For most uses you can run the shortcut created in Desktop, or the exe `ZeroDrop.exe`
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+### Options
+Pass options using cmd: `zerodrop.exe [option1] [option2]..`
+* **ignorePGP**: Ignore PGP validation, this doesnt work most of the time.
