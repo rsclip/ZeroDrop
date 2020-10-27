@@ -1,4 +1,4 @@
 PySciter==0.4.30
 clipboard==0.0.4
 pycryptodome==3.9.7
-cryptography==2.6.1
+cryptography==3.2
